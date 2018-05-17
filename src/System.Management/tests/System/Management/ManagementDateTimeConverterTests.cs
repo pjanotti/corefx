@@ -11,16 +11,15 @@ namespace System.Management.Tests
         [ConditionalFact(typeof(WmiTestHelper), nameof(WmiTestHelper.IsWmiSupported))]
         public void DateTime_RoundTrip()
         {
-            var date = new DateTime(2002, 4, 8, 14, 18, 35, 978, DateTimeKind.Utc).AddMinutes(150);
-            var dmtfDate = "20020408141835.978000-150";
-            var dmtfDateExpected = "20020408164835.978000+000";
+            var date = new DateTime(2002, 4, 8, 14, 18, 35, 978, DateTimeKind.Utc);
+            var dmtfDate = "20020408141835.978000+000";
 
             DateTime convertedDate = ManagementDateTimeConverter.ToDateTime(dmtfDate).ToUniversalTime();
             Assert.Equal(date, convertedDate);
 
             // Converting System.DateTime to DMTF datetime
             string convertedDmtfDate = ManagementDateTimeConverter.ToDmtfDateTime(date);
-            Assert.Equal(dmtfDateExpected, convertedDmtfDate);
+            Assert.Equal(dmtfDate, convertedDmtfDate);
         }
 
         [ConditionalFact(typeof(WmiTestHelper), nameof(WmiTestHelper.IsWmiSupported))]
