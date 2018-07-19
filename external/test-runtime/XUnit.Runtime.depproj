@@ -223,7 +223,7 @@
 
   <Target Name="AddXunitConsoleRunner" BeforeTargets="ResolveReferences" Condition="'$(TargetGroup)' == 'netfx'">
     <Error Condition="!Exists('$(PackagesDir)$(XUnitRunnerPackageId)\$(XUnitPackageVersion)\tools\xunit.console.exe')"
-            Text="Error: looks the package $(PackagesDir)$(XUnitRunnerPackageId)\$(XUnitPackageVersion) not restored or is missing xunit.console.exe."
+            Text="Error: looks the package $(PackagesDir)$(XUnitRunnerPackageId)\$(XUnitPackageVersion) not restored or missing xunit.console.exe."
     />
     <ItemGroup>
       <ReferenceCopyLocalPaths
@@ -239,7 +239,7 @@
 
   <Target Name="AddCoverletDependencies" BeforeTargets="ResolveReferences" >
     <Error Condition="!Exists('$(PackagesDir)$(CoverletPackageId)/$(CoverletPackageVersion)/build/netstandard2.0/coverlet.tracker.dll')"
-            Text="Error: looks the package $(PackagesDir)$(CoverletPackageId)/$(CoverletPackageVersion) not restored or is missing coverlet.tracker.dll."
+            Text="Error: looks the package $(PackagesDir)$(CoverletPackageId)/$(CoverletPackageVersion) not restored or missing coverlet.tracker.dll."
     />
     <ItemGroup>
       <ReferenceCopyLocalPaths
